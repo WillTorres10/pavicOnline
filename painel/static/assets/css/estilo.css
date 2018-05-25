@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    padding:0;
+    /*overflow: hidden;*/
+    background-color: #e2dede;
+    height: 100%;
+}
+#logo{
+    background: #49545e;
+    height: 60px;
+    text-align: center;
+    padding-left: 15px;
+}
+#logo img{
+    width: 160px;
+    height: auto;
+    margin-top:9px; 
+}
+#menuFerramenta{
+    background: #708090;
+    height: 100vh; 
+    color: #fff;
+    padding: 0px;
+    min-width: 280px;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: 9;
+}
+#menuFerramenta nav ul{
+    list-style: none;
+    margin-left: -20px;
+}
+#menuFerramenta nav ul li{
+    widows: 90%;
+    height: 40px;
+    text-align: left;
+    margin-left: -15%;
+    padding-top: 8px;
+    padding-left: 10%;
+    transition: 0.2s;
+}
+#menuFerramenta nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+#menuFerramenta nav ul li:hover{
+    background: #5b5b5b;
+    transition: 0.2s;
+}
+#menuFerramenta nav ul ul{
+    background: #3b3b3b;
+    width: 120%;
+    display: none;
+    margin-left: -29px;
+}
+#menuFerramenta nav ul ul li:hover{
+    background: #333232;
+}
+#formLogin{
+    height: auto;
+    width: 320px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+.form-control{
+    margin-bottom: 10px;
+}
+.seta-baixo:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 0; 
+    height: 0; 
+  
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgb(255, 255, 255);
+  }
+#Conteudo{
+    max-width: 90%;
+    height: auto;
+    background: #fff;
+    padding: 5%;
+    border-radius: 3px;
+    transform: scale(0.9);
+    overflow-y: scroll;
+    position: static;
+    z-index: 1;
+}

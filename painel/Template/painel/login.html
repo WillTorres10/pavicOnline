@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Pavic Online - Login Painel</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap-grid.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap-reboot.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'assets/css/estilo.css' %}" />
+	</head>
+    <body class="text-center">
+        <div id="formLogin" >
+            <form method="post" action="{% url 'painel:acessar' %}" class="form-signin">
+
+                <img src="{% static 'assets/images/Logo.png' %}" style="width:100%; margin-bottom:10px;">
+                <h1 class="h3 mb-3 font-weight-normal">Acesso ao painel</h1>
+                {% csrf_token %}
+                {{ FormularioLogin }}
+                {% if form.errors %}
+                    <p class=" label label-danger">
+                        Usuário ou senha incorreto!<br>
+                        Por favor tente novamente agora!
+                    </p>
+                {% endif %}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
+            </form>
+        </div>
+    </body>

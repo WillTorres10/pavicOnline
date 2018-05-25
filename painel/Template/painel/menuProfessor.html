@@ -1,0 +1,9 @@
+{% extends "painel/base.html" %}
+{%block Tipo%}Professor(a){%endblock%}
+{% block adicionaisProfessor %}
+    <li id="Usuarios" onclick="monstrarSubMenu('UsuariosOpcs', 'Usuarios')" class="seta-baixo">Usuários</li>
+    <ul id="UsuariosOpcs">
+        <li><a href="{% url 'painel:cadastroProfessor' %}">Cadastrar Professor</a></li>
+        <li><a href="{% url 'painel:cadastroAluno' %}">Cadastrar Aluno</a></li>
+    </ul>
+{% endblock %}

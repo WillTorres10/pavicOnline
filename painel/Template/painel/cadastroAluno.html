@@ -1,0 +1,10 @@
+{% extends "painel/menuProfessor.html" %}
+    {% block Titulo %} Cadastrar Aluno(a) {% endblock %}
+    {% block corpo %}
+    	<h1>Cadastrar Aluno(a)</h1><br>
+        <form action="{% url 'painel:cadastroAluno' %}" method="post">
+        	{% csrf_token %}
+            {{ FormularioCadastro }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+        </form>
+    {% endblock %}
