@@ -1,10 +1,60 @@
 {% extends "painel/menuProfessor.html" %}
     {% block Titulo %} Cadastrar Professor(a) {% endblock %}
     {% block corpo %}
-    	<h1>Cadastrar Professor(a)</h1><br>
-        <form action="{% url 'painel:cadastroProfessor' %}" method="post">
-        	{% csrf_token %}
-            {{ FormularioCadastro }}
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
-        </form>
-    {% endblock %}
+        
+    <div class="container">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header">Cadastrar um(a) Professor(a)</div>
+              <div class="card-body">
+                    <form action="{% url 'painel:cadastroProfessor' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.primNome }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.sobreNome }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.username }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.email }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.password }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.repeatPassword }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.CPF_Pessoa }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.data_nascimento }}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.Lattes }}
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{ FormularioCadastro.AreaInteresse }}
+                                        </div>
+                                    </div>
+                                </div>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+                    </form>
+              </div>
+            </div>
+          </div>
+    
+    
+          {% endblock %}

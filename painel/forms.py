@@ -35,7 +35,7 @@ class FormularioCadastroProfessor(forms.Form):
 
 class FormularioCadastroAluno(forms.Form):
     primNome = forms.CharField(required=True, label='',
-                               widget=forms.TextInput(attrs={'placeholder': 'Primeiro Nome', 'class': 'form-control'}))
+                               widget=forms.TextInput(attrs={'placeholder': 'Nome', 'class': 'form-control'}))
     sobreNome = forms.CharField(required=True, label='',
                                 widget=forms.TextInput(attrs={'placeholder': 'Sobrenome', 'class': 'form-control'}))
     username = forms.CharField(required=True, label='',
@@ -54,9 +54,6 @@ class FormularioCadastroAluno(forms.Form):
                                  widget=forms.TextInput(attrs={'placeholder': 'CPF', 'class': 'form-control'}))
     Lattes = forms.URLField(required=True, label='',
                             widget=forms.TextInput(attrs={'placeholder': 'Link Lattes', 'class': 'form-control'}))
-    AreaInteresse = forms.CharField(required=True, label='',
-                                    widget=forms.TextInput(
-                                        attrs={'placeholder': 'Area de pesquisa', 'class': 'form-control'}))
 
 
 class FormularioCadastroComputadores(forms.Form):

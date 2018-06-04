@@ -108,3 +108,33 @@ class CadastroAluno(View):
         )
         alu.save()
         return render(request, self.template_name)
+
+def listarUsuarios(request, *args, **kwargs):
+    if not request.user.is_authenticated:
+        return redirect('painel:acessar')
+    else:
+        alunos = Alunos.objects.all()
+        pessoas = Pessoa.objects.all()
+        usuarios = User.objects.all()
+        templateName = 'painel/menuProfessor.html'
+        if alunos.filter(UserName = request.user.username):
+            templateName = 'painel/menuAluno.html'
+        atributos = list()
+        for user in usuarios:
+            pessoa = Pessoa.objects.filter(UserName=user.username)
+            pessoaLista = list(pessoa)
+            tipo = "Professor"
+            if Alunos.objects.filter(UserName=user.username):
+                tipo = "Aluno"
+            att = list()
+            att.append(user.id)
+            att.append(user.username)
+            att.append(user.first_name + " " + user.last_name)
+            att.append(user.email)
+            att.append(tipo)
+            if pessoa.values('Status'):
+                att.append("Ativo")
+            else:
+                att.append("Desativo")
+            atributos.append(att)
+        return render(request, 'painel/listarUsuarios.html', {'template':templateName, 'atributos':atributos})
