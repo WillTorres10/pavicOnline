@@ -23,7 +23,7 @@
 			</div>
 			<nav>
 				<ul>
-					<li>Olá {% block Tipo %}{% endblock %}</li>
+					<li>Olá {{request.user.username}}</li>
 					<li><a href="{% url 'painel:home' %}">Inicio do Painel</a></li>
 					<li>Gerênciar Perfil</li>
 					<li id="Calendario" onclick="monstrarSubMenu('CalendarioOpcs', 'Calendario')" class="seta-baixo">Calendário</li>

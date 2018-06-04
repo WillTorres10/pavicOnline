@@ -17,13 +17,13 @@ def index(request):
     else:
         usuarioAtual = request.user
         professores = Professores.objects.filter(UserName = usuarioAtual.username)
-        print(professores)
         if professores:
-            return render(request, 'painel/homeProfessor.html')
+            print(usuarioAtual.first_name+" "+usuarioAtual.last_name)
+            return render(request, 'painel/homeProfessor.html', {'NomeUser' : usuarioAtual.first_name})
         else:
             alunos = Alunos.objects.filter(UserName = usuarioAtual.username)
             if alunos:
-                return render(request, 'painel/homeAluno.html')
+                return render(request, 'painel/homeAluno.html', {'NomeUser':usuarioAtual.first_name})
 
         return render(request, 'painel/base.html', {'FormularioLogin': FormularioLogin, 'NomeUser':usuarioAtual.username})
 
