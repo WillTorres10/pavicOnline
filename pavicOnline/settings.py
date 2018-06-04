@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pavicOnline',
         'USER': 'root',
-        'PASSWORD': '19980430',
+        'PASSWORD': '#######',
         'HOST': 'localhost',
         'PORT': '3306',
     }
