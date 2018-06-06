@@ -1,6 +1,5 @@
 from django import forms
 
-
 class FormularioLogin(forms.Form):
     username = forms.CharField(required=True, label='',
                                widget=forms.TextInput(attrs={'placeholder': 'Usuário', 'class': 'form-control'}))
@@ -67,7 +66,7 @@ class FormularioCadastroSoftware(forms.Form):
     titulo = forms.CharField(required=True, label='',
                              widget=forms.TextInput(attrs={'placeholder': 'Nome do Software', 'class': 'form-control'}))
     descricao = forms.CharField(required=True, label='',
-                                widget=forms.TextInput(attrs={'placeholder': 'Descrição', 'class': 'form-control'}))
+                                widget=forms.Textarea(attrs={'placeholder': 'Descrição', 'class': 'form-control', 'rows':'4'}))
     versao = forms.CharField(required=True, label='',
                              widget=forms.TextInput(attrs={'placeholder': 'Versão', 'class': 'form-control'}))
 
@@ -86,13 +85,12 @@ class FormularioCadastroInventario(forms.Form):
     status_Objeto = forms.BooleanField(required=True, label='',
                                        widget=forms.CheckboxInput(attrs={'class': 'required checkbox form-control'}))
 
-
 class FormularioCadastroBiblioteca(forms.Form):
-    # pdfArtigo = forms..FileField(upload_to=user_directory_path)
+
     titulo = forms.CharField(required=True, label='',
-                             widget=forms.TextInput(attrs={'placeholder': 'Nome do Artigo', 'class': 'form-control'}))
+                             widget=forms.TextInput(attrs={'placeholder': 'Titulo do Artigo', 'class': 'form-control'}))
     resumo = forms.CharField(required=True, label='',
-                             widget=forms.TextInput(attrs={'placeholder': 'Resumo', 'class': 'form-control'}))
+                             widget=forms.Textarea(attrs={'placeholder': 'Resumo', 'class': 'form-control', 'rows':'4' }))
     dataPublicacao = forms.DateField(required=True, label='', widget=forms.DateInput(attrs={'type': 'date'}))
     autor = forms.CharField(required=True, label='',
                             widget=forms.TextInput(attrs={'placeholder': 'Autor', 'class': 'form-control'}))

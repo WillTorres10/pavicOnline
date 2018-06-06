@@ -35,13 +35,49 @@
           </a>
         </li>
 		{% block adicionaisProfessor %}{% endblock %}
-		{% block adicionaisAluno %}{% endblock %}
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
-        </li>
+    {% block adicionaisAluno %}{% endblock %}
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#computadores" data-parent="#exampleAccordion">
+        <span class="nav-link-text">Computadores</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="computadores">
+            <li>
+                <li><a href="{% url 'painel:listarComputadores' %}">Listar Computadores</a></li>
+            </li>
+            <li>
+                <li><a href="{% url 'painel:cadastroComputador' %}">Cadastrar Computador</a></li>
+            </li>
+            <li>
+                <li><a href="{% url 'painel:cadastroAluno' %}">Alterar Computador</a></li>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#softwares" data-parent="#exampleAccordion">
+        <span class="nav-link-text">Softwares</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="softwares">
+            <li>
+                <li><a href="{% url 'painel:listarSoftwares' %}">Listar Softwares</a></li>
+            </li>
+            <li>
+                <li><a href="{% url 'painel:cadastroSoftware' %}">Cadastrar Softwares</a></li>
+            </li>
+            <li>
+                <li><a href="{% url 'painel:cadastroAluno' %}">Alterar Software</a></li>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Biblioteca" data-parent="#exampleAccordion">
+        <span class="nav-link-text">Biblioteca</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="Biblioteca">
+            <li>
+                <li><a href="{% url 'painel:cadastroBiblioteca' %}">Cadastrar item</a></li>
+            </li>
+        </ul>
+    </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

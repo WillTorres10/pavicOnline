@@ -1,0 +1,53 @@
+{%  extends template %}
+    {% block Titulo %} Cadastrar Computador {% endblock %}
+    {% block corpo %}
+    <div class="container">
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Cadastrar um Computador</div>
+            <div class="card-body">
+                <form action="{% url 'painel:cadastroComputador' %}" method="post">
+        	        {% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label>Usuário do computador: </label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="usuariosDono">
+                                        <option selected disabled>Selecionar Usuario</option>
+                                        {% for user in usuarios %}
+                                            <option value="{{user.username}}">{{user.first_name}} {{user.last_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label>Status do computador: </label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="Uso" id="optionsRadios1" value="True">
+                                    Em Uso
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="Uso" id="optionsRadios2" value="False">
+                                    Sem Uso
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+    {% endblock %}

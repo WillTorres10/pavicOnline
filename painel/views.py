@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.http import *
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
+from django.core.files.storage import FileSystemStorage
 from django.views.generic.base import View
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -12,17 +13,14 @@ from django.contrib.auth.views import login, logout
 app_name = 'painel'
 
 def index(request):
-    if not request.user.is_authenticated:
-        return redirect('painel:acessar')
+    usuarioAtual = request.user
+    professores = Professores.objects.filter(UserName = usuarioAtual.username)
+    alunos = Alunos.objects.filter(UserName=usuarioAtual.username)
+    if alunos:
+        return render(request, 'painel/homeAluno.html', {'NomeUser': usuarioAtual.first_name})
     else:
-        usuarioAtual = request.user
-        professores = Professores.objects.filter(UserName = usuarioAtual.username)
-        alunos = Alunos.objects.filter(UserName=usuarioAtual.username)
-        if alunos:
-            return render(request, 'painel/homeAluno.html', {'NomeUser': usuarioAtual.first_name})
-        else:
-            return render(request, 'painel/homeProfessor.html', {'NomeUser' : usuarioAtual.first_name})
-        return render(request, 'painel/base.html', {'FormularioLogin': FormularioLogin, 'NomeUser':usuarioAtual.username})
+        return render(request, 'painel/homeProfessor.html', {'NomeUser' : usuarioAtual.first_name})
+    return render(request, 'painel/base.html', {'FormularioLogin': FormularioLogin, 'NomeUser':usuarioAtual.username})
 
 @csrf_exempt
 def acessar(request, *args, **kwargs):
@@ -39,11 +37,17 @@ def sair(request, *args, **kwargs):
     return logout(request, *args, **kwargs)
 
 class CadastroProfessor(View):
-    template_name = 'painel/cadastroProfessor.html'
+    alunos = Alunos.objects.all()
+    usuarios = User.objects.all()
+    computadores = Computadores.objects.all()
+    templateName = 'painel/menuProfessor.html'
 
     def get(self, request, *args, **kwargs):
-        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroProfessor}
-        kwargs['template_name'] = self.template_name
+        if self.alunos.filter(UserName=request.user.username):
+            return redirect('painel:home')
+        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroProfessor,
+                                   'template':self.templateName}
+        kwargs['template_name'] = 'painel/cadastroProfessor.html'
         return login(request, *args, **kwargs)
         #return render(request, *args, **kwargs))
 
@@ -73,16 +77,21 @@ class CadastroProfessor(View):
         )
 
         prof.save()
-        return render(request, self.template_name)
+        return render(request, 'painel/cadastroProfessor.html',{'template':self.templateName})
 
 class CadastroAluno(View):
-    template_name = 'painel/cadastroAluno.html'
+    alunos = Alunos.objects.all()
+    usuarios = User.objects.all()
+    computadores = Computadores.objects.all()
+    templateName = 'painel/menuProfessor.html'
 
     def get(self, request, *args, **kwargs):
-        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroAluno}
-        kwargs['template_name'] = self.template_name
+        if self.alunos.filter(UserName=request.user.username):
+            return redirect('painel:home')
+        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroAluno,
+                                   'template':self.templateName}
+        kwargs['template_name'] = 'painel/cadastroAluno.html'
         return login(request, *args, **kwargs)
-        #return render(request, *args, **kwargs))
 
     @csrf_exempt
     def post(self, request):
@@ -107,7 +116,98 @@ class CadastroAluno(View):
             UserName=u.UserName
         )
         alu.save()
-        return render(request, self.template_name)
+        return render(request, 'painel/cadastroAluno.html',{'template':self.templateName})
+
+class CadastroComputador(View):
+    alunos = Alunos.objects.all()
+    usuarios = User.objects.all()
+    computadores = Computadores.objects.all()
+    templateName = 'painel/menuProfessor.html'
+
+    def get(self, request, *args, **kwargs):
+        if self.alunos.filter(UserName=request.user.username):
+            self.templateName = 'painel/menuAluno.html'
+        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroComputadores,
+                                   'usuarios':self.usuarios, 'template':self.templateName}
+        kwargs['template_name'] = "painel/cadastroComputador.html"
+        return login(request, *args, **kwargs)
+        #return render(request, *args, **kwargs))
+
+    @csrf_exempt
+    def post(self, request):
+        form = FormularioCadastroComputadores(request.POST)
+        dados_form = form.data
+        computador_novo = Computadores(
+            Status_Computador=request.POST['Uso'],
+            UserName=request.POST.get('usuariosDono')
+        )
+
+        computador_novo.save()
+        return render(request, "painel/cadastroComputador.html",{'template':self.templateName})
+
+class CadastroSoftware(View):
+    alunos = Alunos.objects.all()
+    usuarios = User.objects.all()
+    computadores = Computadores.objects.all()
+    templateName = 'painel/menuProfessor.html'
+
+    def get(self, request, *args, **kwargs):
+        usuarios = User.objects.all()
+        if self.alunos.filter(UserName=request.user.username):
+            self.templateName = 'painel/menuAluno.html'
+        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroSoftware,
+                                   'usuarios':usuarios, 'template':self.templateName}
+        kwargs['template_name'] = "painel/cadastroSoftware.html"
+        return login(request, *args, **kwargs)
+
+    @csrf_exempt
+    def post(self, request):
+        form = FormularioCadastroSoftware(request.POST)
+        dados_form = form.data
+
+        softwareNovo = Software(
+            Titulo=dados_form['titulo'],
+            Descricao=dados_form['descricao'],
+            Versao=dados_form['versao']
+        )
+        softwareNovo.save()
+        return render(request, "painel/cadastroSoftware.html",{'template':self.templateName})
+
+class CadastroBiblioteca(View):
+    alunos = Alunos.objects.all()
+    usuarios = User.objects.all()
+    computadores = Computadores.objects.all()
+    templateName = 'painel/menuProfessor.html'
+
+    def get(self, request, *args, **kwargs):
+        usuarios = User.objects.all()
+        if self.alunos.filter(UserName=request.user.username):
+            self.templateName = 'painel/menuAluno.html'
+        kwargs['extra_context'] = {'next': reverse('painel:home'), 'FormularioCadastro': FormularioCadastroBiblioteca,
+                                   'usuarios': usuarios, 'template': self.templateName}
+        kwargs['template_name'] = "painel/cadastroBiblioteca.html"
+        return login(request, *args, **kwargs)
+
+    @csrf_exempt
+    def post(self, request):
+        form = FormularioCadastroSoftware(request.POST)
+        dados_form = form.data
+
+        bibliotecaNovo = Biblioteca(
+            Titulo=dados_form['titulo'],
+            Resumo=dados_form['resumo'],
+            Data_Publicao=dados_form['dataPublicacao'],
+            Autor=dados_form['autor'],
+            Area_Abordagem=dados_form['areaAbordagem']
+        )
+        bibliotecaNovo.save()
+
+        myfile = request.FILES['arquivo']
+        fs = FileSystemStorage()
+        filename = fs.save(bibliotecaNovo.Titulo+".pdf", myfile)
+        uploaded_file_url = fs.url(filename)
+
+        return render(request, "painel/cadastroBiblioteca.html", {'template': self.templateName, 'uploaded_file_url': uploaded_file_url})
 
 def listarUsuarios(request, *args, **kwargs):
     if not request.user.is_authenticated:
@@ -138,3 +238,47 @@ def listarUsuarios(request, *args, **kwargs):
                 att.append("Desativo")
             atributos.append(att)
         return render(request, 'painel/listarUsuarios.html', {'template':templateName, 'atributos':atributos})
+
+def listarComputadores(request):
+    if not request.user.is_authenticated:
+        return redirect('painel:acessar')
+    else:
+        alunos = Alunos.objects.all()
+        usuarios = User.objects.all()
+        computadores = Computadores.objects.all()
+        templateName = 'painel/menuProfessor.html'
+        if alunos.filter(UserName = request.user.username):
+            templateName = 'painel/menuAluno.html'
+        atributos = list()
+        for pc in computadores:
+            att = list()
+            att.append(pc.ID_Maquina)
+            usuario = usuarios.get(username=pc.UserName)
+            att.append(usuario.first_name + " " + usuario.last_name)
+            if pc.Status_Computador:
+                att.append("Em uso")
+            else:
+                att.append("Sem uso")
+            atributos.append(att)
+        return render(request, 'painel/listarComputadores.html', {'template':templateName, 'atributos':atributos})
+
+def listarSoftware(request):
+    if not request.user.is_authenticated:
+        return redirect('painel:acessar')
+    else:
+        alunos = Alunos.objects.all()
+        usuarios = User.objects.all()
+        softwares = Software.objects.all()
+        templateName = 'painel/menuProfessor.html'
+        if alunos.filter(UserName = request.user.username):
+            templateName = 'painel/menuAluno.html'
+        atributos = list()
+        for pc in softwares:
+            att = list()
+            att.append(pc.ID_software)
+            att.append(pc.Titulo)
+            att.append(pc.Descricao)
+            att.append(pc.Versao)
+            atributos.append(att)
+        return render(request, 'painel/listarSoftware.html', {'template':templateName, 'atributos':atributos})
+

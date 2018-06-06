@@ -1,0 +1,52 @@
+{%  extends template %}
+    {% block Titulo %} Cadastrar Item na Biblioteca {% endblock %}
+    {% block corpo %}
+    <div class="container">
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Cadastrar Item na Biblioteca</div>
+            <div class="card-body">
+                <form action="{% url 'painel:cadastroBiblioteca' %}" method="post">
+        	        {% csrf_token %}
+                    <div class="form-group">
+
+                        {% if uploaded_file_url %}
+                            <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                        {% endif %}
+                        <div class="form-row">
+                            {{ FormularioCadastro.titulo}}
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label>Data de publicação</label>
+                                {{ FormularioCadastro.dataPublicacao}}
+                            </div>
+                            <div class="col-6">
+                                {{ FormularioCadastro.autor}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            {{ FormularioCadastro.resumo}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        
+                        {{ FormularioCadastro.areaAbordagem}}
+                    </div>
+                    <div class="form-row">
+                        <div class="col-3">
+                            <label>Arquivo PDF</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="file" class="form-control-file" name="arquivo">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                    </div>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+    {% endblock %}

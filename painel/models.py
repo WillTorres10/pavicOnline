@@ -61,7 +61,7 @@ class Inventario(models.Model):
 
 class Biblioteca(models.Model):
     ID_Artigo = models.AutoField(primary_key=True)
-    PDF_Artigo = models.CharField(max_length=100, default='', null=False)
+    PDF_Arquivo = models.FileField(upload_to='arquivosBiblioteca/', null=True)
     Titulo = models.CharField(max_length=300, default='', null=False)
     Resumo = models.CharField(max_length=800, default='', null=False)
     Data_Publicao = models.DateField()
