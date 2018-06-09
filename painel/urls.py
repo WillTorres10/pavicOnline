@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from . import views
 from .views import *
 
+
 app_name = 'painel'
 
 urlpatterns = [
@@ -18,5 +19,6 @@ urlpatterns = [
     path('cadastroSoftware/', login_required(CadastroSoftware.as_view()), name='cadastroSoftware'),
     path('listarSoftwares/', login_required(views.listarSoftware), name='listarSoftwares'),
     path('cadastroBiblioteca/', login_required(CadastroBiblioteca.as_view()), name='cadastroBiblioteca'),
+    path('listarBiblioteca/', login_required(views.listarBiblioteca), name='listarBiblioteca'),
     path('sair/', views.sair, name='sair'),
 ]

@@ -19,6 +19,7 @@
                     <th>Email</th>
                     <th>Tipo</th>
                     <th>Status</th>
+                    <th>Lattes</th>
                 </tr>
               </thead>
               <tfoot>
@@ -29,13 +30,14 @@
                     <th>Email</th>
                     <th>Tipo</th>
                     <th>Status</th>
+                    <th>Lattes</th>
                 </tr>
               </tfoot>
               <tbody>
                 {% for user in atributos %}
                 <tr>
                     {% for att in user %}
-                        <td>{{att}}</td>
+                        <td>{{att|safe}}</td>
                     {% endfor %}
                 </tr>
                 {% endfor %}

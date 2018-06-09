@@ -3,11 +3,14 @@ from django.contrib.auth.models import User
 
 class Pessoa(models.Model):
     CPF_Pessoa = models.CharField(max_length=11, default='', null=False)
-    FotoPerfil = models.CharField(max_length=50, default='')
+    FotoPerfil = models.FileField(null=True, upload_to="perfil")
     Data_Nascimento = models.DateField()
     Lattes = models.CharField(max_length=80, default='', null=False)
     Status = models.BooleanField(null=False)
     UserName = models.CharField(max_length=100, default='', null=False)
+
+    def returnLattes(self):
+        return self.Lattes
 
 class Professores(models.Model):
     UserName = models.CharField(max_length=100, default='', null=False)
@@ -61,9 +64,9 @@ class Inventario(models.Model):
 
 class Biblioteca(models.Model):
     ID_Artigo = models.AutoField(primary_key=True)
-    PDF_Arquivo = models.FileField(upload_to='arquivosBiblioteca/', null=True)
     Titulo = models.CharField(max_length=300, default='', null=False)
     Resumo = models.CharField(max_length=800, default='', null=False)
     Data_Publicao = models.DateField()
     Autor = models.CharField(max_length=100, default='')
     Area_Abordagem = models.CharField(max_length=100, default='', null=False)
+    PDF_Arquivo = models.FileField(null=True, upload_to="pdf")

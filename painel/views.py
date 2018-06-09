@@ -1,8 +1,4 @@
-from django.contrib.auth.models import User
-from django.http import *
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate
-from django.core.files.storage import FileSystemStorage
 from django.views.generic.base import View
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
@@ -190,7 +186,7 @@ class CadastroBiblioteca(View):
 
     @csrf_exempt
     def post(self, request):
-        form = FormularioCadastroSoftware(request.POST)
+        form = FormularioCadastroSoftware(request.POST, request.FILES)
         dados_form = form.data
 
         bibliotecaNovo = Biblioteca(
@@ -198,16 +194,12 @@ class CadastroBiblioteca(View):
             Resumo=dados_form['resumo'],
             Data_Publicao=dados_form['dataPublicacao'],
             Autor=dados_form['autor'],
-            Area_Abordagem=dados_form['areaAbordagem']
+            Area_Abordagem=dados_form['areaAbordagem'],
+            PDF_Arquivo=request.FILES['my_uploaded_file']
         )
         bibliotecaNovo.save()
 
-        myfile = request.FILES['arquivo']
-        fs = FileSystemStorage()
-        filename = fs.save(bibliotecaNovo.Titulo+".pdf", myfile)
-        uploaded_file_url = fs.url(filename)
-
-        return render(request, "painel/cadastroBiblioteca.html", {'template': self.templateName, 'uploaded_file_url': uploaded_file_url})
+        return render(request, "painel/cadastroBiblioteca.html", {'template': self.templateName})
 
 def listarUsuarios(request, *args, **kwargs):
     if not request.user.is_authenticated:
@@ -222,7 +214,7 @@ def listarUsuarios(request, *args, **kwargs):
         atributos = list()
         for user in usuarios:
             pessoa = Pessoa.objects.filter(UserName=user.username)
-            pessoaLista = list(pessoa)
+            plista = list(pessoa)
             tipo = "Professor"
             if Alunos.objects.filter(UserName=user.username):
                 tipo = "Aluno"
@@ -236,6 +228,10 @@ def listarUsuarios(request, *args, **kwargs):
                 att.append("Ativo")
             else:
                 att.append("Desativo")
+            lattes = str(list(pessoa.values("Lattes"))).replace("[{'Lattes': '","")
+            lattes = lattes.replace("'}]","")
+            lattesURL = "<a href='"+lattes+"' target='_blank'>Acessar</a>"
+            att.append(lattesURL)
             atributos.append(att)
         return render(request, 'painel/listarUsuarios.html', {'template':templateName, 'atributos':atributos})
 
@@ -282,3 +278,25 @@ def listarSoftware(request):
             atributos.append(att)
         return render(request, 'painel/listarSoftware.html', {'template':templateName, 'atributos':atributos})
 
+def listarBiblioteca(request):
+    if not request.user.is_authenticated:
+        return redirect('painel:acessar')
+    else:
+        alunos = Alunos.objects.all()
+        biblioteca = Biblioteca.objects.all()
+        templateName = 'painel/menuProfessor.html'
+        if alunos.filter(UserName = request.user.username):
+            templateName = 'painel/menuAluno.html'
+        atributos = list()
+        for bib in biblioteca:
+            att = list()
+            att.append(bib.ID_Artigo)
+            att.append(bib.Titulo)
+            att.append(bib.Resumo)
+            att.append(bib.Data_Publicao)
+            att.append(bib.Autor)
+            att.append(bib.Area_Abordagem)
+            URL = "<a href='"+bib.PDF_Arquivo.url+"' target='_blank'>Acessar</a>"
+            att.append(URL)
+            atributos.append(att)
+        return render(request, 'painel/listarBiblioteca.html', {'template':templateName, 'atributos':atributos})

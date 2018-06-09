@@ -1,4 +1,5 @@
 from django import forms
+from django.db import models
 
 class FormularioLogin(forms.Form):
     username = forms.CharField(required=True, label='',
