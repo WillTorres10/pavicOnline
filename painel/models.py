@@ -9,9 +9,6 @@ class Pessoa(models.Model):
     Status = models.BooleanField(null=False)
     UserName = models.CharField(max_length=100, default='', null=False)
 
-    def returnLattes(self):
-        return self.Lattes
-
 class Professores(models.Model):
     UserName = models.CharField(max_length=100, default='', null=False)
     ID_Professor = models.AutoField(primary_key=True)

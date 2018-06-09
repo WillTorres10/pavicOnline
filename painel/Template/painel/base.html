@@ -28,56 +28,59 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Inicio">
           <a class="nav-link" href="{% url 'painel:home' %}">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-home"></i>
             <span class="nav-link-text">Inicio</span>
           </a>
         </li>
 		{% block adicionaisProfessor %}{% endblock %}
     {% block adicionaisAluno %}{% endblock %}
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Computadores">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#computadores" data-parent="#exampleAccordion">
-        <span class="nav-link-text">Computadores</span>
+          <i class="fa fa-desktop"></i>
+          <span class="nav-link-text">Computadores</span>
         </a>
         <ul class="sidenav-second-level collapse" id="computadores">
             <li>
-                <li><a href="{% url 'painel:listarComputadores' %}">Listar Computadores</a></li>
+                <li><a href="{% url 'painel:listarComputadores' %}"><i class="fa fa-list"></i> Listar Computadores</a></li>
             </li>
             <li>
-                <li><a href="{% url 'painel:cadastroComputador' %}">Cadastrar Computador</a></li>
+                <li><a href="{% url 'painel:cadastroComputador' %}"><i class="fa fa-plus"></i> Cadastrar Computador</a></li>
             </li>
             <li>
-                <li><a href="{% url 'painel:cadastroAluno' %}">Alterar Computador</a></li>
+                <li><a href="{% url 'painel:cadastroAluno' %}"><i class=" 	fa fa-refresh"></i> Alterar Computador</a></li>
             </li>
         </ul>
     </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Softwares">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#softwares" data-parent="#exampleAccordion">
-        <span class="nav-link-text">Softwares</span>
+          <i class="fa fa-file-code-o"></i>
+          <span class="nav-link-text">Softwares</span>
         </a>
         <ul class="sidenav-second-level collapse" id="softwares">
             <li>
-                <li><a href="{% url 'painel:listarSoftwares' %}">Listar Softwares</a></li>
+                <li><a href="{% url 'painel:listarSoftwares' %}"><i class="fa fa-list"></i> Listar Softwares</a></li>
             </li>
             <li>
-                <li><a href="{% url 'painel:cadastroSoftware' %}">Cadastrar Softwares</a></li>
+                <li><a href="{% url 'painel:cadastroSoftware' %}"><i class="fa fa-plus"></i> Cadastrar Softwares</a></li>
             </li>
             <li>
-                <li><a href="{% url 'painel:cadastroAluno' %}">Alterar Software</a></li>
+                <li><a href="{% url 'painel:cadastroAluno' %}"><i class=" 	fa fa-refresh"></i> Alterar Software</a></li>
             </li>
         </ul>
     </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Biblioteca">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Biblioteca" data-parent="#exampleAccordion">
-        <span class="nav-link-text">Biblioteca</span>
+          <i class="fa fa-book"></i>
+          <span class="nav-link-text">Biblioteca</span>
         </a>
         <ul class="sidenav-second-level collapse" id="Biblioteca">
             <li>
-                <li><a href="{% url 'painel:cadastroBiblioteca' %}">Cadastrar item</a></li>
-            </li>
+                <li><a href="{% url 'painel:listarBiblioteca' %}"><i class="fa fa-list"></i> Listar Itens</a></li>
+            </li>  
             <li>
-                <li><a href="{% url 'painel:listarBiblioteca' %}">Listar Itens</a></li>
+                <li><a href="{% url 'painel:cadastroBiblioteca' %}"><i class="fa fa-plus"></i> Cadastrar item</a></li>
             </li>
         </ul>
     </li>
@@ -92,20 +95,19 @@
       <ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  {{request.user.first_name}} {{request.user.last_name}}
+              <i class="fa fa-user"></i>
+            {{request.user.first_name}} {{request.user.last_name}}
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
 					  <h6 class="dropdown-header">Todas as opções sobre seu perfil:</h6>
 					  <div class="dropdown-divider"></div>
 					  <a class="dropdown-item" href="#">
-						<strong>Trocar Senha</strong>
-					  </a>
-					  <div class="dropdown-divider"></div>
-					  <a class="dropdown-item" href="#">
+              <i class=" 	fa fa-refresh"></i>
 						<strong>Alterar Detalhes</strong>
 					  </a>
 					  <div class="dropdown-divider"></div>
 					  <a class="dropdown-item" href="{% url 'painel:sair' %}">
+                <i class="fa fa-fw fa-sign-out"></i>
 						<strong>Sair</strong>
 					  </a>
 				  </li>

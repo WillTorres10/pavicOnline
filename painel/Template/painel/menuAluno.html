@@ -2,13 +2,14 @@
 {%block Tipo%}Aluno(a){%endblock%}
 
 {% block adicionaisAluno %}
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuários">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-        <span class="nav-link-text">Usuários</span>
+            <i class="fa fa-group"></i>
+            <span class="nav-link-text">Usuários</span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseMulti">
         <li>
-            <li><a href="{% url 'painel:listarUsuarios' %}">Listar todos</a></li>
+            <li><a href="{% url 'painel:listarUsuarios' %}"><i class="fa fa-list"></i> Listar todos</a></li>
         </li>
         </ul>
     </li>

@@ -10,13 +10,17 @@ app_name = 'painel'
 
 def index(request):
     usuarioAtual = request.user
-    professores = Professores.objects.filter(UserName = usuarioAtual.username)
+    pessoa = Pessoa.objects.filter(UserName = usuarioAtual.username)
+    Nome_completo = usuarioAtual.first_name + " " + usuarioAtual.last_name
+    fotoPerfil = str(pessoa.values("FotoPerfil"))
+    fotoPerfil = fotoPerfil.replace("<QuerySet [{'FotoPerfil': '", "/media/")
+    fotoPerfil = fotoPerfil.replace("'}]>", "")
     alunos = Alunos.objects.filter(UserName=usuarioAtual.username)
     if alunos:
-        return render(request, 'painel/homeAluno.html', {'NomeUser': usuarioAtual.first_name})
+        return render(request, 'painel/homeAluno.html', {'fotoPerfil':fotoPerfil, "nomePessoa":Nome_completo})
     else:
-        return render(request, 'painel/homeProfessor.html', {'NomeUser' : usuarioAtual.first_name})
-    return render(request, 'painel/base.html', {'FormularioLogin': FormularioLogin, 'NomeUser':usuarioAtual.username})
+        return render(request, 'painel/homeProfessor.html', {'fotoPerfil':fotoPerfil})
+    return render(request, 'painel/base.html', {'FormularioLogin': FormularioLogin, 'fotoPerfil':fotoPerfil})
 
 @csrf_exempt
 def acessar(request, *args, **kwargs):
@@ -26,7 +30,6 @@ def acessar(request, *args, **kwargs):
     kwargs['extra_context'] = {'next': reverse('painel:acessar'), 'FormularioLogin': FormularioLogin}
     kwargs['template_name'] = 'painel/login.html'
     return login(request, *args, **kwargs)
-
 
 def sair(request, *args, **kwargs):
     kwargs['next_page'] = reverse('painel:acessar')
@@ -63,7 +66,8 @@ class CadastroProfessor(View):
                    Data_Nascimento=dados_form['data_nascimento'],
                    Lattes=dados_form['Lattes'],
                    UserName=usuario_auth.username,
-                   Status = True
+                   Status = True,
+                   FotoPerfil=request.FILES['my_uploaded_file']
                 )
         u.save()
 
@@ -104,7 +108,8 @@ class CadastroAluno(View):
                    Data_Nascimento=dados_form['data_nascimento'],
                    Lattes=dados_form['Lattes'],
                    UserName=usuario_auth.username,
-                   Status = True
+                   Status=True,
+                   FotoPerfil=request.FILES['my_uploaded_file']
                 )
         u.save()
 

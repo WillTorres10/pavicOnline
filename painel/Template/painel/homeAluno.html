@@ -1,1 +1,18 @@
 {% extends "painel/menuAluno.html" %}
+    {% block Titulo %}Inicio Aluno{% endblock %}
+    {% block corpo %}
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-user"></i> {{nomePessoa}}</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-2 my-auto">
+                    <img src="{{fotoPerfil|safe}}" class="rounded-circle .img-thumbnail " style="width: 120px; height: 120px;">
+                </div>
+                <div class="col-sm-8 my-auto">
+                    <h2>Seu Perfil</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
