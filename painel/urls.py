@@ -18,7 +18,10 @@ urlpatterns = [
     path('listarComputadores/', login_required(views.listarComputadores), name='listarComputadores'),
     path('cadastroSoftware/', login_required(CadastroSoftware.as_view()), name='cadastroSoftware'),
     path('listarSoftwares/', login_required(views.listarSoftware), name='listarSoftwares'),
+    path('alterarSoftware/', login_required(AlterarSoftware.as_view()), name='alterarSoftware'),
     path('cadastroBiblioteca/', login_required(CadastroBiblioteca.as_view()), name='cadastroBiblioteca'),
     path('listarBiblioteca/', login_required(views.listarBiblioteca), name='listarBiblioteca'),
+    path('alterarComputador/', login_required(AlterarComputador.as_view()), name='alterarComputador'),
+    path('removerComputador/', login_required(RemoverComputador.as_view()), name='removerComputador'),
     path('sair/', views.sair, name='sair'),
 ]

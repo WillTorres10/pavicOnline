@@ -1,0 +1,24 @@
+{%  extends template %}
+    {% block Titulo %} Alterar Software {% endblock %}
+    {% block corpo %}
+    <div class="container">
+        <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Alterar um Software</div>
+            <div class="card-body">
+                <form action="{% url 'painel:alterarSoftware' %}" method="post">
+        	        {% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-row">
+                            {{FormularioAlterarSoftware}}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                    </div>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Alterar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+    {% endblock %}

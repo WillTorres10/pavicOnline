@@ -55,14 +55,26 @@ class FormularioCadastroAluno(forms.Form):
     Lattes = forms.URLField(required=True, label='',
                             widget=forms.TextInput(attrs={'placeholder': 'Link Lattes', 'class': 'form-control'}))
 
-
+#Computadores
 class FormularioCadastroComputadores(forms.Form):
     status_Computador = forms.BooleanField(required=True, label='', widget=forms.CheckboxInput(
         attrs={'class': 'required checkbox form-control'}))
     username = forms.CharField(required=True, label='',
                                widget=forms.TextInput(attrs={'placeholder': 'Usuário', 'class': 'form-control'}))
 
+class FormularioAlterarComputadores(forms.Form):
+    maquina = forms.IntegerField(required=True, label='',
+                               widget=forms.TextInput(attrs={'placeholder': 'maquina', 'class': 'form-control'}))
+    status_Computador = forms.BooleanField(required=True, label='', widget=forms.CheckboxInput(
+        attrs={'class': 'required checkbox form-control'}))
+    username = forms.CharField(required=True, label='',
+                               widget=forms.TextInput(attrs={'placeholder': 'Usuário', 'class': 'form-control'}))
 
+class FormularioRemoverComputadores(forms.Form):
+    maquina = forms.IntegerField(required=True, label='',
+                               widget=forms.TextInput(attrs={'placeholder': 'maquina', 'class': 'form-control'}))
+
+#Software
 class FormularioCadastroSoftware(forms.Form):
     titulo = forms.CharField(required=True, label='',
                              widget=forms.TextInput(attrs={'placeholder': 'Nome do Software', 'class': 'form-control'}))
@@ -71,13 +83,22 @@ class FormularioCadastroSoftware(forms.Form):
     versao = forms.CharField(required=True, label='',
                              widget=forms.TextInput(attrs={'placeholder': 'Versão', 'class': 'form-control'}))
 
+class FormularioAlterarSoftware(forms.Form):
+    ID_Software = forms.IntegerField(required=True, label='',
+                               widget=forms.TextInput(attrs={'placeholder': 'ID_Software', 'class': 'form-control'}))
+    titulo = forms.CharField(required=True, label='',
+                             widget=forms.TextInput(attrs={'placeholder': 'Nome do Software', 'class': 'form-control'}))
+    descricao = forms.CharField(required=True, label='',
+                                widget=forms.Textarea(attrs={'placeholder': 'Descrição', 'class': 'form-control', 'rows':'4'}))
+    versao = forms.CharField(required=True, label='',
+                             widget=forms.TextInput(attrs={'placeholder': 'Versão', 'class': 'form-control'}))
 
 class FormularioCadastroCalendario(forms.Form):
     datasMarcadas = forms.DateField(required=True, label='', widget=forms.DateInput(attrs={'type': 'date'}))
     tema = forms.CharField(required=True, label='',
                            widget=forms.TextInput(attrs={'placeholder': 'Tema', 'class': 'form-control'}))
 
-
+#inventario
 class FormularioCadastroInventario(forms.Form):
     nomeObjeto = forms.CharField(required=True, label='',
                                  widget=forms.TextInput(attrs={'placeholder': 'Nome Objeto', 'class': 'form-control'}))
