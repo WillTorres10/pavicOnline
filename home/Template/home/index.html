@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PAVIC - Pesquisas aplicadas a visão e inteligência computacional </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FreeHTML5.co" />
+	
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+	  <!-- Facebook and Twitter integration -->
+	{% load staticfiles %}
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'assets/css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'assets/js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center menu-1">
+					<ul>
+						<li ><a href="#fh5co-header">Inicio</a></li>
+						<li ><a href="#sobre">Sobre</a></li>
+						<li ><a href="#membros">Membros</a></li>
+						<li><a href="#contato">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({% static 'assets/images/img_bg_1.jpg'});">
+		<div class="overlay"></div>
+		<div class="container" >
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
+							<img src="{% static 'assets/images/logo.svg' %}" style="margin-top:-20%; width:90%"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	
+
+	<div id="fh5co-services" class="fh5co-bg-section">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-8 col-md-offset-2 text-center animate-box" data-animate-effect="fadeInUp">
+					<div class="fh5co-heading" id="sobre">
+						<h2>Sobre</h2>
+						<p>
+							Somos um grupo de estudantes de graduação e professores nas áreas de Ciência da Computação, Sistemas de Informação e Engenharia de Teleinformática. Desde sua criação, em 2014, o grupo gera conhecimento na área de visão computacional  e processamento de sinais.
+						</p>
+						<p>
+							O PAVIC também está cadastrado no Diretório de Grupos do CNPq sob a liderança do Professor <a href="http://lattes.cnpq.br/7913655222849728 " target="_blank">Antônio Oseas de Carvalho Filho</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	
+	<div id="fh5co-project">
+		<div class="container" id="membros">
+			<div class="row row-pb-md">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading  animate-box">
+					<span>Nos conheça um pouco mais.</span>
+					<h2>Membros</h2>
+				</div>
+			</div>
+			<div class="row text-center">
+				{% for user in atributos %}
+				<div class="col-md-3 col-sm-6 fh5co-project animate-box " data-animate-effect="fadeIn">
+					{% for att in user %}
+						{{att|safe}}
+					{% endfor %}
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+		
+	</div>
+
+	<div id="fh5co-contact " class="fh5co-bg-section">
+		<div class="container" id="contato">
+				<div class="row row-pb-md">
+						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading  animate-box">
+							<h2>Contato</h2>
+							<p>Formulário para entrar em contato com o laboratório</p>
+						</div>
+					</div>
+			<div class="row">
+				<div class="col-md-5 col-md-push-1 animate-box">
+					
+					<div class="fh5co-contact-info">
+						<h3>Informações de contato</h3>
+						<ul>
+							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li class="url"><a href="http://pavic.ufpi.br/">pavic.ufpi.br</a></li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-6 animate-box">
+					<h3>Entrar em contato</h3>
+					<form action="#">
+						<div class="row form-group">
+							<div class="col-md-6">
+								<label for="fname">Primeiro Nome</label>
+								<input type="text" id="fname" class="form-control" placeholder="Seu primeiro nome">
+							</div>
+							<div class="col-md-6">
+								<label for="lname">Último Nome</label>
+								<input type="text" id="lname" class="form-control" placeholder="Seu último nome">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="email">Email</label>
+								<input type="text" id="email" class="form-control" placeholder="Seu endereço de email">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="subject">Assunto</label>
+								<input type="text" id="subject" class="form-control" placeholder="Assunto que se trata a mensagem">
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-md-12">
+								<label for="message">Mensagem</label>
+								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Fale alguma coisa aqui"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Enviar" class="btn btn-primary">
+						</div>
+
+					</form>		
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container ">
+			<div class="row text-center row-pb-md">
+				<div class="col-md-1"></div>
+				<div class="col-md-3 col-sm-6 fh5co-project animate-box " data-animate-effect="fadeIn">
+						<img src="{% static 'assets/images/logo2.svg' %}" style="max-width:110%">
+				</div>
+				<div class="col-md-3 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
+					<img src="{% static 'assets/images/FAPEPI.png' %}" style="width:110%">
+					<br><br>
+					<img src="{% static 'assets/images/cnpq-logo-5.png' %}" style="width:110%">
+				</div>
+				<div class="col-md-3 col-sm-6 fh5co-project animate-box text-right" data-animate-effect="fadeIn">
+					<img src="{% static 'assets/images/Brasão_UFPI.png' %}" style="max-width:90%">
+				</div>
+			</div>
+		</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2014-2018 PAVIC. Todos os direitos reservados.</small> 
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="https://www.facebook.com/labpavic/" target="_blank"><i class="icon-facebook"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+	<!-- countTo -->
+	<script src="{% static 'assets/js/jquery.countTo.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/magnific-popup-options.js' %}"></script>
+	<!-- Main -->
+	<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+

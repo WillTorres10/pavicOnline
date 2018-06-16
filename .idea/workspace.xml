@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2685f7e5-f688-4b62-bcdc-df66822b14c1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/cadastroAluno.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/cadastroAluno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/cadastroProfessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/cadastroProfessor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/cadastroSoftware.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/cadastroSoftware.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/homeAluno.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/homeAluno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/menuAluno.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/menuAluno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/Template/painel/menuProfessor.html" beforeDir="false" afterPath="$PROJECT_DIR$/painel/Template/painel/menuProfessor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/painel/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/painel/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pavicOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pavicOnline/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pavicOnline/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pavicOnline/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,32 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/painel/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#885#1153#0" />
-                <element signature="e#1196#1287#0" />
-                <element signature="e#1324#3076#0" />
-                <element signature="e#3109#4662#0" />
-                <element signature="e#4700#5818#0" />
-                <element signature="e#5854#6956#0" />
-                <element signature="e#6994#8291#0" />
-                <element signature="e#9769#10673#0" />
-                <element signature="e#10708#11448#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/painel/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+            <state relative-caret-position="90">
+              <caret line="11" column="52" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -56,23 +27,31 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pavicOnline/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+            <state relative-caret-position="365">
+              <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/painel/forms.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1185">
-              <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
+            <state relative-caret-position="195">
+              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
               <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#4039#4360#0" />
-                <element signature="e#4413#4933#0" />
-                <element signature="e#4988#5251#0" />
-                <element signature="e#5306#5835#0" />
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/painel/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="236" column="45" lean-forward="true" selection-start-line="235" selection-start-column="12" selection-end-line="236" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,6 +92,9 @@
       <find>textAre</find>
       <find>textarea</find>
       <find>MEDIA_ROOT</find>
+      <find>user</find>
+      <find>lattes</find>
+      <find>Lattes</find>
     </findStrings>
     <replaceStrings>
       <replace>models.AutoField(primary_key=True)</replace>
@@ -149,20 +131,21 @@
         <option value="$PROJECT_DIR$/painel/Template/painel/listarUsuarios.html" />
         <option value="$PROJECT_DIR$/painel/Template/painel/cadastroAluno.html" />
         <option value="$PROJECT_DIR$/painel/Template/painel/cadastroComputador.html" />
-        <option value="$PROJECT_DIR$/pavicOnline/urls.py" />
         <option value="$PROJECT_DIR$/painel/forms.py" />
-        <option value="$PROJECT_DIR$/painel/urls.py" />
         <option value="$PROJECT_DIR$/pavicOnline/settings.py" />
         <option value="$PROJECT_DIR$/painel/models.py" />
+        <option value="$PROJECT_DIR$/pavicOnline/urls.py" />
         <option value="$PROJECT_DIR$/painel/views.py" />
+        <option value="$PROJECT_DIR$/painel/urls.py" />
+        <option value="$PROJECT_DIR$/home/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="281" />
-    <option name="y" value="-4" />
-    <option name="width" value="1319" />
-    <option name="height" value="764" />
+    <option name="x" value="257" />
+    <option name="y" value="17" />
+    <option name="width" value="1553" />
+    <option name="height" value="896" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -181,12 +164,12 @@
             <path>
               <item name="pavicOnline" type="b2602c69:ProjectViewProjectNode" />
               <item name="pavicOnline" type="462c0819:PsiDirectoryNode" />
-              <item name="painel" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pavicOnline" type="b2602c69:ProjectViewProjectNode" />
               <item name="pavicOnline" type="462c0819:PsiDirectoryNode" />
-              <item name="pavicOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="painel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -252,14 +235,14 @@
     <frame x="44" y="-11" width="1323" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16949153" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14252697" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49922958" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50154084" side_tool="true" weight="0.32917318" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49845916" weight="0.3281493" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32903227" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49922958" visible="true" weight="0.38533542" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49922958" visible="true" weight="0.47425896" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -273,21 +256,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16949153" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.49922958" weight="0.32917318" />
-      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49845916" weight="0.3281493" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49922958" visible="true" weight="0.39937598" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50154084" side_tool="true" weight="0.32917318" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.49845916" weight="0.3281493" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32903227" />
     </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
@@ -314,13 +297,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/painel/Template/painel/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/painel/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -332,18 +308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#885#1153#0" />
-            <element signature="e#1196#1287#0" />
-            <element signature="e#1324#3076#0" />
-            <element signature="e#3109#4662#0" />
-            <element signature="e#4700#5818#0" />
-            <element signature="e#5854#6956#0" />
-            <element signature="e#6994#8291#0" />
-            <element signature="e#9769#10673#0" />
-            <element signature="e#10708#11448#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -379,18 +343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#885#1153#0" />
-            <element signature="e#1196#1287#0" />
-            <element signature="e#1324#3076#0" />
-            <element signature="e#3109#4662#0" />
-            <element signature="e#4700#5818#0" />
-            <element signature="e#5854#6956#0" />
-            <element signature="e#6994#8291#0" />
-            <element signature="e#9769#10673#0" />
-            <element signature="e#10708#11448#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -426,18 +378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#885#1153#0" />
-            <element signature="e#1196#1287#0" />
-            <element signature="e#1324#3076#0" />
-            <element signature="e#3109#4662#0" />
-            <element signature="e#4700#5818#0" />
-            <element signature="e#5854#6956#0" />
-            <element signature="e#6994#8291#0" />
-            <element signature="e#9769#10673#0" />
-            <element signature="e#10708#11448#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -466,18 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#885#1153#0" />
-            <element signature="e#1196#1287#0" />
-            <element signature="e#1324#3076#0" />
-            <element signature="e#3109#4662#0" />
-            <element signature="e#4700#5818#0" />
-            <element signature="e#5854#6956#0" />
-            <element signature="e#6994#8291#0" />
-            <element signature="e#9769#10673#0" />
-            <element signature="e#10708#11448#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -660,28 +588,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pavicOnline/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/painel/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pavicOnline/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        <state relative-caret-position="45">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/painel/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
+        <state relative-caret-position="365">
           <caret line="98" column="77" selection-start-line="98" selection-start-column="77" selection-end-line="98" selection-end-column="77" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -702,19 +616,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/painel/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="64" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+        <state relative-caret-position="100">
+          <caret line="236" column="45" lean-forward="true" selection-start-line="235" selection-start-column="12" selection-end-line="236" selection-end-column="45" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#885#1153#0" />
-            <element signature="e#1196#1287#0" />
-            <element signature="e#1324#3076#0" />
-            <element signature="e#3109#4662#0" />
-            <element signature="e#4700#5818#0" />
-            <element signature="e#5854#6956#0" />
-            <element signature="e#6994#8291#0" />
-            <element signature="e#9769#10673#0" />
-            <element signature="e#10708#11448#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pavicOnline/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="86" column="29" selection-start-line="86" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/painel/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
