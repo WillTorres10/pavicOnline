@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls',
     'painel',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'pavicOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'painel/Template'),],
+        'DIRS': [os.path.join(BASE_DIR, 'painel/Template'),os.path.join(BASE_DIR, 'home/Template'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
